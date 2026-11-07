@@ -1,0 +1,589 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./";
+
+/* Tailwind theme: color tokens (so bg-primary/text-foreground resolve to our vars) +
+   breakpoints. @theme inline keeps the var() reference (theme-swappable at runtime). */
+@theme inline {
+  --breakpoint-vp375: 375px;
+  --breakpoint-vp768: 768px;
+  --breakpoint-vp1280: 1280px;
+  --breakpoint-vp1920: 1920px;
+  --breakpoint-md: 572px;
+  --breakpoint-lg: 1025px;
+  --breakpoint-2xl: 1601px;
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-clr-0: var(--clr-0);
+  --color-border: var(--border);
+  --color-clr-1: var(--clr-1);
+  --color-color-001: var(--color-001);
+  --color-clr-2: var(--clr-2);
+  --color-color-014: var(--color-014);
+  --color-clr-3: var(--clr-3);
+  --color-clr-4: var(--clr-4);
+  --color-clr-5: var(--clr-5);
+  --color-surface-3: var(--surface-3);
+  --color-clr-6: var(--clr-6);
+  --color-clr-7: var(--clr-7);
+  --color-clr-8: var(--clr-8);
+  --color-clr-9: var(--clr-9);
+  --color-clr-10: var(--clr-10);
+  --color-clr-11: var(--clr-11);
+  --color-clr-12: var(--clr-12);
+  --color-clr-13: var(--clr-13);
+  --color-clr-14: var(--clr-14);
+  --color-clr-15: var(--clr-15);
+  --color-clr-16: var(--clr-16);
+  --color-clr-17: var(--clr-17);
+  --color-primary: var(--primary);
+  --color-color-003: var(--color-003);
+  --color-clr-18: var(--clr-18);
+  --color-clr-19: var(--clr-19);
+  --color-clr-20: var(--clr-20);
+  --color-surface-5: var(--surface-5);
+  --color-clr-21: var(--clr-21);
+  --color-clr-22: var(--clr-22);
+  --color-color-019: var(--color-019);
+  --color-clr-23: var(--clr-23);
+  --color-clr-24: var(--clr-24);
+  --color-color-002: var(--color-002);
+  --color-clr-25: var(--clr-25);
+  --color-color-018: var(--color-018);
+  --color-color-008: var(--color-008);
+  --color-clr-26: var(--clr-26);
+  --color-clr-27: var(--clr-27);
+  --color-clr-28: var(--clr-28);
+  --color-clr-29: var(--clr-29);
+  --color-clr-30: var(--clr-30);
+  --color-clr-31: var(--clr-31);
+  --color-clr-32: var(--clr-32);
+  --color-color-026: var(--color-026);
+  --color-clr-33: var(--clr-33);
+  --color-surface-2: var(--surface-2);
+  --color-clr-34: var(--clr-34);
+  --color-clr-35: var(--clr-35);
+  --color-clr-36: var(--clr-36);
+  --color-clr-37: var(--clr-37);
+  --color-color-006: var(--color-006);
+  --color-surface-4: var(--surface-4);
+  --color-surface: var(--surface);
+  --color-clr-38: var(--clr-38);
+  --color-clr-39: var(--clr-39);
+  --color-color-011: var(--color-011);
+  --color-clr-40: var(--clr-40);
+  --color-clr-41: var(--clr-41);
+  --color-clr-42: var(--clr-42);
+  --color-clr-43: var(--clr-43);
+  --color-clr-44: var(--clr-44);
+  --color-color-022: var(--color-022);
+  --color-clr-45: var(--clr-45);
+  --color-clr-46: var(--clr-46);
+  --color-clr-47: var(--clr-47);
+  --color-clr-48: var(--clr-48);
+  --color-surface-6: var(--surface-6);
+  --color-clr-49: var(--clr-49);
+  --color-clr-50: var(--clr-50);
+  --color-clr-51: var(--clr-51);
+  --color-clr-52: var(--clr-52);
+  --color-clr-53: var(--clr-53);
+  --color-color-025: var(--color-025);
+  --color-clr-54: var(--clr-54);
+  --color-color-005: var(--color-005);
+  --color-color-013: var(--color-013);
+  --color-color-017: var(--color-017);
+  --color-color-015: var(--color-015);
+  --color-color-010: var(--color-010);
+  --color-clr-55: var(--clr-55);
+  --color-clr-56: var(--clr-56);
+  --color-clr-57: var(--clr-57);
+  --color-clr-58: var(--clr-58);
+  --color-clr-59: var(--clr-59);
+  --color-clr-60: var(--clr-60);
+  --color-color-007: var(--color-007);
+  --color-color-020: var(--color-020);
+  --color-clr-61: var(--clr-61);
+  --color-clr-62: var(--clr-62);
+  --color-clr-63: var(--clr-63);
+  --color-clr-64: var(--clr-64);
+  --color-color-012: var(--color-012);
+  --color-clr-65: var(--clr-65);
+  --color-clr-66: var(--clr-66);
+  --color-clr-67: var(--clr-67);
+  --color-clr-68: var(--clr-68);
+  --color-clr-69: var(--clr-69);
+  --color-clr-70: var(--clr-70);
+  --color-clr-71: var(--clr-71);
+  --color-clr-72: var(--clr-72);
+  --color-clr-73: var(--clr-73);
+  --color-clr-74: var(--clr-74);
+  --color-color-004: var(--color-004);
+  --color-clr-75: var(--clr-75);
+  --color-clr-76: var(--clr-76);
+  --color-color-009: var(--color-009);
+  --color-clr-77: var(--clr-77);
+  --color-clr-78: var(--clr-78);
+  --color-clr-79: var(--clr-79);
+  --color-clr-80: var(--clr-80);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-color-023: var(--color-023);
+  --color-color-016: var(--color-016);
+  --color-color-021: var(--color-021);
+  --color-clr-81: var(--clr-81);
+  --color-clr-82: var(--clr-82);
+  --color-clr-83: var(--clr-83);
+  --color-color-024: var(--color-024);
+  --color-clr-84: var(--clr-84);
+  --color-accent: var(--accent);
+  --color-clr-85: var(--clr-85);
+  --color-clr-86: var(--clr-86);
+  --color-clr-87: var(--clr-87);
+  --color-clr-88: var(--clr-88);
+  --color-clr-89: var(--clr-89);
+  --color-clr-90: var(--clr-90);
+  --color-clr-91: var(--clr-91);
+  --color-clr-92: var(--clr-92);
+  --color-clr-93: var(--clr-93);
+  --color-clr-94: var(--clr-94);
+  --color-clr-95: var(--clr-95);
+  --color-clr-96: var(--clr-96);
+  --color-clr-97: var(--clr-97);
+  --color-clr-98: var(--clr-98);
+  --color-clr-99: var(--clr-99);
+  --color-clr-100: var(--clr-100);
+  --color-clr-101: var(--clr-101);
+  --color-clr-102: var(--clr-102);
+  --color-clr-103: var(--clr-103);
+  --color-clr-104: var(--clr-104);
+  --color-clr-105: var(--clr-105);
+  --color-clr-106: var(--clr-106);
+  --color-clr-107: var(--clr-107);
+  --color-clr-108: var(--clr-108);
+  --color-clr-109: var(--clr-109);
+  --color-clr-110: var(--clr-110);
+  --color-clr-111: var(--clr-111);
+  --color-clr-112: var(--clr-112);
+  --color-clr-113: var(--clr-113);
+  --color-clr-114: var(--clr-114);
+  --color-clr-115: var(--clr-115);
+  --color-clr-116: var(--clr-116);
+  --color-clr-117: var(--clr-117);
+  --color-clr-118: var(--clr-118);
+  --color-clr-119: var(--clr-119);
+  --color-clr-120: var(--clr-120);
+  --color-clr-121: var(--clr-121);
+  --color-clr-122: var(--clr-122);
+  --color-clr-123: var(--clr-123);
+  --color-clr-124: var(--clr-124);
+  --color-clr-125: var(--clr-125);
+  --color-clr-126: var(--clr-126);
+}
+
+/* Design tokens (values). */
+:root {
+  --background: rgb(248, 244, 238);
+  --foreground: rgb(26, 14, 8);
+  --primary: rgba(255, 240, 228, 0.82);
+  --accent: rgba(255, 240, 228, 0.72);
+  --border: rgba(20, 10, 5, 0.06);
+  --muted-foreground: rgb(163, 163, 163);
+  --surface: rgb(234, 223, 211);
+  --muted: rgb(138, 138, 138);
+  --surface-2: rgba(255, 255, 255, 0.3);
+  --surface-3: rgba(255, 255, 255, 0.12);
+  --surface-4: rgb(243, 238, 231);
+  --surface-5: rgba(255, 255, 255, 0.55);
+  --surface-6: rgb(232, 243, 234);
+  --color-001: rgb(255, 255, 255);
+  --color-002: rgba(26, 14, 8, 0.62);
+  --color-003: rgb(255, 246, 239);
+  --color-004: rgb(237, 237, 237);
+  --color-005: rgba(255, 255, 255, 0.9);
+  --color-006: rgba(26, 14, 8, 0.58);
+  --color-007: rgba(28, 24, 19, 0.62);
+  --color-008: rgb(194, 65, 12);
+  --color-009: rgb(220, 220, 218);
+  --color-010: rgb(28, 24, 19);
+  --color-011: rgb(31, 107, 55);
+  --color-012: rgba(255, 240, 228, 0.66);
+  --color-013: rgb(236, 220, 207);
+  --color-014: rgba(255, 255, 255, 0.86);
+  --color-015: rgb(232, 80, 14);
+  --color-016: rgb(255, 138, 76);
+  --color-017: rgba(26, 14, 8, 0.1);
+  --color-018: rgba(26, 14, 8, 0.25);
+  --color-019: rgba(26, 14, 8, 0.66);
+  --color-020: rgba(28, 24, 19, 0.18);
+  --color-021: rgb(26, 26, 26);
+  --color-022: rgba(255, 214, 190, 0.14);
+  --color-023: rgb(34, 34, 34);
+  --color-024: rgb(58, 46, 36);
+  --color-025: rgb(31, 122, 61);
+  --color-026: rgb(255, 240, 230);
+}
+
+:root {
+  /* fonts */
+  --font-body: "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-001: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-002: Inter, -apple-system, "Segoe UI", sans-serif;
+  --font-003: "Google Sans Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-004: "Google Sans Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* fontSizes */
+  --font-size-001: 10.5px;
+  --font-size-002: 11px;
+  --font-size-003: 11.5px;
+  --font-size-004: 12px;
+  --font-size-005: 12.5px;
+  --font-size-006: 13px;
+  --font-size-007: 13.5px;
+  --font-size-008: 14px;
+  --font-size-009: 14.5px;
+  --font-size-010: 15px;
+  --font-size-011: 15.5px;
+  --font-size-012: 16px;
+  --font-size-013: 16.5px;
+  --font-size-014: 17px;
+  --font-size-015: 19px;
+  --font-size-016: 19.2px;
+  --font-size-017: 21px;
+  --font-size-018: 26px;
+  --font-size-019: 32px;
+  --font-size-020: 42px;
+  --font-size-021: 44px;
+  --font-size-022: 49.6px;
+  --font-size-023: 71.68px;
+  --font-size-024: 76.8px;
+  --font-size-025: 80px;
+  --font-size-026: 320px;
+  /* fontWeights */
+  --font-weight-001: 400;
+  --font-weight-002: 500;
+  --font-weight-003: 600;
+  --font-weight-004: 700;
+  --font-weight-005: 800;
+  /* lineHeights */
+  --line-height-001: 24px;
+  --line-height-002: 20.25px;
+  --line-height-003: 19.5px;
+  --line-height-004: 25.5px;
+  --line-height-005: 88px;
+  --line-height-006: 18.75px;
+  --line-height-007: 21px;
+  --line-height-008: 18px;
+  --line-height-009: 22.5px;
+  --line-height-010: 23.25px;
+  --line-height-011: 78.336px;
+  --line-height-012: 48.3px;
+  --line-height-013: 16.5px;
+  --line-height-014: 21.75px;
+  --line-height-015: 71.68px;
+  --line-height-016: 320px;
+  --line-height-017: 17.25px;
+  --line-height-018: 22.95px;
+  --line-height-019: 26.35px;
+  --line-height-020: 15.75px;
+  --line-height-021: 24.96px;
+  --line-height-022: 47.52px;
+  --line-height-023: 14.95px;
+  --line-height-024: 20.3px;
+  --line-height-025: 20px;
+  --line-height-026: 22.475px;
+  --line-height-027: 26px;
+  --line-height-028: 17.55px;
+  --line-height-029: 19.575px;
+  --line-height-030: 22px;
+  --line-height-031: 25.2px;
+  --line-height-032: 25.575px;
+  --line-height-033: 32px;
+  --line-height-034: 36.48px;
+  --line-height-035: 50.592px;
+  /* spacing */
+  --space-001: -310px;
+  --space-002: -186px;
+  --space-003: -105px;
+  --space-004: -44px;
+  --space-005: -13.824px;
+  --space-006: -11.4688px;
+  --space-007: -9.216px;
+  --space-008: -6px;
+  --space-009: -5.7344px;
+  --space-010: -1px;
+  --space-011: 1px;
+  --space-012: 2px;
+  --space-013: 2.1504px;
+  --space-014: 3px;
+  --space-015: 4px;
+  --space-016: 5px;
+  --space-017: 5.7344px;
+  --space-018: 6px;
+  --space-019: 6.144px;
+  --space-020: 7px;
+  --space-021: 8px;
+  --space-022: 9px;
+  --space-023: 9.216px;
+  --space-024: 10px;
+  --space-025: 11px;
+  --space-026: 11.4688px;
+  --space-027: 12px;
+  --space-028: 13px;
+  --space-029: 13.824px;
+  --space-030: 14px;
+  --space-031: 16px;
+  --space-032: 18px;
+  --space-033: 19.2px;
+  --space-034: 20px;
+  --space-035: 22px;
+  --space-036: 24px;
+  --space-037: 26px;
+  --space-038: 28px;
+  --space-039: 32px;
+  --space-040: 40px;
+  --space-041: 44px;
+  --space-042: 48px;
+  --space-043: 49.92px;
+  --space-044: 52px;
+  --space-045: 56px;
+  --space-046: 64px;
+  --space-047: 144px;
+  /* radii */
+  --radius-001: 1px;
+  --radius-002: 2px;
+  --radius-003: 4px;
+  --radius-004: 5px;
+  --radius-005: 6px;
+  --radius-006: 7px;
+  --radius-007: 8px;
+  --radius-008: 9px;
+  --radius-009: 10px;
+  --radius-010: 11px;
+  --radius-011: 13px;
+  --radius-012: 16px;
+  --radius-013: 20px;
+  --radius-014: 22px;
+  --radius-015: 24px;
+  --radius-016: 28px;
+  --radius-017: 50%;
+  --radius-018: 999px;
+  /* shadows */
+  --shadow-001: rgba(20, 10, 5, 0.05) 0px 0px 0px 1px inset;
+  --shadow-002: rgba(20, 10, 5, 0.05) 0px 0px 0px 1px, rgba(20, 10, 5, 0.04) 0px 1px 2px 0px, rgba(80, 30, 5, 0.25) 0px 18px 40px -28px;
+  --shadow-003: rgba(20, 10, 5, 0.04) 0px 0px 0px 1px;
+  --shadow-004: rgba(255, 255, 255, 0.14) 0px 0px 0px 1px inset;
+  --shadow-005: rgba(255, 255, 255, 0.55) 0px 0px 0px 1px inset;
+  --shadow-006: rgba(20, 10, 5, 0.08) 0px 0px 0px 1px, rgba(80, 30, 5, 0.3) 0px 2px 8px -4px;
+  --shadow-007: rgba(0, 0, 0, 0.2) 0px 8px 32px 0px;
+  --shadow-008: rgba(194, 65, 12, 0.18) 0px 0px 0px 1px inset;
+  --shadow-009: rgba(20, 10, 5, 0.04) 0px 0px 0px 1px inset;
+  /* zIndices */
+  --z-001: 0;
+  --z-002: 1;
+  --z-003: 2;
+  --z-004: 3;
+  /* breakpoints */
+  --bp-375: 375px;
+  --bp-768: 768px;
+  --bp-1280: 1280px;
+  --bp-1920: 1920px;
+}
+
+:root {
+  --clr-0: rgba(255, 255, 255, 0.74);
+  --clr-1: rgba(80, 30, 5, 0.3);
+  --clr-2: rgba(0, 0, 0, 0);
+  --clr-3: rgba(255, 220, 200, 0.6);
+  --clr-4: rgba(20, 10, 5, 0.35);
+  --clr-5: rgba(20, 10, 5, 0.7);
+  --clr-6: rgba(80, 30, 5, 0.34);
+  --clr-7: rgb(20, 10, 5);
+  --clr-8: rgb(42, 19, 9);
+  --clr-9: rgb(122, 35, 6);
+  --clr-10: rgb(255, 91, 20);
+  --clr-11: rgb(255, 122, 46);
+  --clr-12: rgb(255, 201, 163);
+  --clr-13: rgb(0, 0, 0);
+  --clr-14: rgba(255, 150, 82, 0.62);
+  --clr-15: rgba(255, 122, 46, 0.46);
+  --clr-16: rgba(255, 122, 46, 0.16);
+  --clr-17: rgba(255, 122, 46, 0);
+  --clr-18: rgba(255, 240, 228, 0.92);
+  --clr-19: rgba(20, 10, 5, 0.9);
+  --clr-20: rgba(255, 255, 255, 0.5);
+  --clr-21: rgba(20, 10, 5, 0.14);
+  --clr-22: rgba(80, 30, 5, 0.16);
+  --clr-23: rgba(255, 255, 255, 0.68);
+  --clr-24: rgba(120, 40, 5, 0.5);
+  --clr-25: rgba(80, 30, 5, 0.25);
+  --clr-26: color(srgb 0.909804 0.313726 0.054902);
+  --clr-27: color(srgb 0.101961 0.054902 0.0313726 / 0.62);
+  --clr-28: color(srgb 0.101961 0.054902 0.0313726);
+  --clr-29: rgba(20, 10, 5, 0.2);
+  --clr-30: rgba(80, 30, 5, 0.55);
+  --clr-31: rgb(255, 196, 156);
+  --clr-32: rgb(255, 220, 195);
+  --clr-33: rgba(255, 255, 255, 0.78);
+  --clr-34: rgba(255, 255, 255, 0);
+  --clr-35: rgba(255, 255, 255, 0.95);
+  --clr-36: rgba(80, 30, 5, 0.06);
+  --clr-37: rgba(150, 55, 10, 0.5);
+  --clr-38: rgba(194, 65, 12, 0.18);
+  --clr-39: rgb(253, 250, 246);
+  --clr-40: rgba(255, 91, 20, 0.92);
+  --clr-41: rgba(255, 91, 20, 0);
+  --clr-42: rgba(255, 122, 46, 0.2);
+  --clr-43: rgba(255, 122, 46, 0.42);
+  --clr-44: rgba(255, 91, 20, 0.14);
+  --clr-45: rgba(255, 170, 120, 0.75);
+  --clr-46: rgba(0, 0, 0, 0.2);
+  --clr-47: rgba(0, 0, 0, 0.7);
+  --clr-48: rgb(255, 228, 214);
+  --clr-49: rgb(138, 90, 0);
+  --clr-50: rgb(255, 241, 199);
+  --clr-51: rgb(255, 243, 233);
+  --clr-52: rgb(255, 217, 189);
+  --clr-53: rgb(255, 184, 137);
+  --clr-54: rgba(26, 14, 8, 0.32);
+  --clr-55: rgb(102, 126, 234);
+  --clr-56: rgb(118, 75, 162);
+  --clr-57: rgb(240, 147, 251);
+  --clr-58: rgb(245, 87, 108);
+  --clr-59: rgba(245, 87, 108, 0.5);
+  --clr-60: rgb(251, 250, 247);
+  --clr-61: rgba(20, 10, 5, 0.8);
+  --clr-62: rgba(80, 30, 5, 0.2);
+  --clr-63: rgb(36, 16, 10);
+  --clr-64: rgb(61, 22, 7);
+  --clr-65: rgb(255, 214, 186);
+  --clr-66: rgba(255, 140, 70, 0.98);
+  --clr-67: rgba(255, 91, 20, 0.9);
+  --clr-68: rgba(196, 60, 10, 0.7);
+  --clr-69: rgba(122, 35, 6, 0.42);
+  --clr-70: rgba(42, 19, 9, 0);
+  --clr-71: rgba(255, 236, 220, 0.95);
+  --clr-72: rgba(255, 160, 96, 0.78);
+  --clr-73: rgba(255, 100, 30, 0.36);
+  --clr-74: rgba(255, 140, 70, 0.6);
+  --clr-75: rgb(15, 15, 15);
+  --clr-76: rgb(31, 31, 31);
+  --clr-77: rgb(19, 19, 19);
+  --clr-78: rgb(255, 95, 87);
+  --clr-79: rgb(254, 188, 46);
+  --clr-80: rgb(40, 200, 64);
+  --clr-81: rgb(214, 243, 155);
+  --clr-82: rgb(246, 246, 244);
+  --clr-83: rgb(201, 201, 198);
+  --clr-84: rgba(26, 14, 8, 0.2);
+  --clr-85: rgba(255, 240, 228, 0.06);
+  --clr-86: rgba(255, 91, 20, 0.75);
+  --clr-87: rgba(255, 240, 228, 0.1);
+  --clr-88: rgba(122, 35, 6, 0.72);
+  --clr-89: rgba(42, 19, 9, 0.36);
+  --clr-90: rgba(20, 10, 5, 0);
+  --clr-91: rgb(255, 250, 247);
+  --clr-92: rgba(255, 250, 246, 0.86);
+  --clr-93: rgba(255, 250, 246, 0.77);
+  --clr-94: rgba(255, 250, 246, 0.914);
+  --clr-95: rgb(255, 250, 246);
+  --clr-96: rgb(48, 30, 24);
+  --clr-97: rgba(26, 14, 8, 0.953);
+  --clr-98: rgba(255, 250, 246, 0.97);
+  --clr-99: rgba(255, 250, 246, 0.945);
+  --clr-100: rgb(50, 31, 25);
+  --clr-101: rgb(243, 236, 227);
+  --clr-102: rgba(26, 14, 8, 0.906);
+  --clr-103: rgba(26, 14, 8, 0.796);
+  --clr-104: rgb(241, 233, 223);
+  --clr-105: rgba(80, 30, 5, 0.39);
+  --clr-106: rgb(241, 234, 224);
+  --clr-107: rgba(80, 30, 5, 0.37);
+  --clr-108: rgb(242, 234, 225);
+  --clr-109: rgba(255, 253, 252, 0.973);
+  --clr-110: rgb(255, 253, 252);
+  --clr-111: rgb(16, 16, 16);
+  --clr-112: rgba(255, 250, 246, 0.027);
+  --clr-113: rgba(255, 250, 246, 0.047);
+  --clr-114: rgba(255, 250, 246, 0);
+  --clr-115: rgb(51, 32, 26);
+  --clr-116: rgba(80, 30, 5, 0.286);
+  --clr-117: rgba(80, 30, 5, 0.04);
+  --clr-118: rgba(80, 30, 5, 0.016);
+  --clr-119: rgba(80, 30, 5, 0.145);
+  --clr-120: rgb(246, 241, 235);
+  --clr-121: rgba(26, 14, 8, 0.71);
+  --clr-122: rgb(243, 237, 228);
+  --clr-123: rgba(26, 14, 8, 0.875);
+  --clr-124: rgba(80, 30, 5, 0.318);
+  --clr-125: rgba(80, 30, 5, 0.106);
+  --clr-126: rgba(255, 241, 231, 0.835);
+}
+
+@layer base {
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid currentColor; }
+html { -webkit-text-size-adjust: 100%; line-height: normal; }
+body { margin: 0; }
+ul, ol, menu { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea, optgroup { font: inherit; color: inherit; background: transparent; border: 0; padding: 0; margin: 0; text-align: inherit; letter-spacing: inherit; }
+button { cursor: pointer; }
+table { border-collapse: separate; border-spacing: 0; }
+img, picture, video, canvas, svg { display: inline-block; }
+/* Lottie runtime fit: the player re-mounts its svg/canvas into an absolute overlay that fills
+   the host's captured (per-viewport, definite) box. Force that runtime media to fit the box so
+   an aspect-mismatched viewBox (e.g. a portrait animation in a shorter, letterboxed source box)
+   can't inflate past the pinned height. Scoped to the runtime-marked host only. */
+[data-ditto-lottie] > div > svg, [data-ditto-lottie] > div > canvas { width: 100%; height: 100%; display: block; }
+h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+/* Neutralize UA text defaults to inherit so the generator's default-skipping is
+   correct: a property equal to its inherited value is simply not emitted. */
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+b, strong, th { font-weight: inherit; }
+em, i, cite, var, dfn, address, q { font-style: inherit; }
+small, big, sub, sup { font-size: inherit; }
+sub, sup { vertical-align: inherit; }
+code, kbd, samp, pre, tt, var { font-family: inherit; font-size: inherit; }
+mark { background-color: transparent; color: inherit; }
+abbr[title] { text-decoration: none; }
+fieldset, legend { min-width: 0; }
+
+/* fonts */
+@font-face {
+  font-family: "Google Sans Code";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/d1a4a7d5c69b.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Google Sans Code";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/d1a4a7d5c69b.woff2") format("woff2");
+  unicode-range: U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 1 1000;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/ce4e4a68a2d7.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 1 1000;
+  font-display: swap;
+  src: url("/assets/cloned/fonts/ce4e4a68a2d7.woff2") format("woff2");
+  unicode-range: U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+html { background: rgb(248, 244, 238); }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+html, body { overflow-x: clip; }
+}
